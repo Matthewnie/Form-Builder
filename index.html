@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Form Builder</title>
+	<link rel="stylesheet" href="assets/css/form.css">
+
+	<script src="modernizr.js"></script>
+</head>
+
+<body>
+
+	<ol class="formeditor">
+		<li class="titles">
+			<div class="type">Type</div>
+			<div class="name">Name</div>
+			<div class="title">Title</div>
+			<div class="required">Required</div>
+			<div class="delete">Action</div>
+		</li>
+		<li draggable="true" class="entry display" data-id="1">
+			<div class="move"></div>
+			<div class="type">
+				<div class="static">Text</div>
+				<div class="edit">
+					<select name="type" id="type">
+						<option value="text" selected>Text</option>
+						<option value="textarea">TextArea</option>
+						<option value="radio">Radio</option>
+						<option value="checkbox">Checkbox</option>
+						<option value="select">Select</option>
+						<option value="attachment">Attachment</option>
+						<option value="heading">Heading</option>
+					</select>
+				</div>
+			</div>
+			<div class="name">
+				<div class="static">testing1</div>
+				<div class="edit">
+					<input type="text" name="name" value="testing1">
+				</div>
+			</div>
+			<div class="title">
+				<div class="static">Test Field</div>
+				<div class="edit">
+					<input type="text" name="title" value="Test Field">
+				</div>
+			</div>
+			<div class="required">
+				<div class="static">Yes</div>
+				<div class="edit">
+					<input type="checkbox" name="required" value="1" checked>
+				</div>
+			</div>
+			<div class="delete">
+				<div class="static"><button class="delete js-delete">X</button></div>
+				<div class="edit">
+					<button class="js-save save">Save</button>
+				</div>
+			</div>
+		</li>
+		<li draggable="true" class="entry display" data-id="2">
+			<div class="move"></div>
+			<div class="type">Text</div>
+			<div class="name">testing2</div>
+			<div class="title">Test Field</div>
+			<div class="required">Yes</div>
+			<div class="delete"><button class="delete js-delete">X</button></div>
+		</li>
+		<li draggable="true" class="entry display" data-id="3">
+			<div class="move"></div>
+			<div class="type">Text</div>
+			<div class="name">testing3</div>
+			<div class="title">Test Field</div>
+			<div class="required">Yes</div>
+			<div class="delete"><button class="delete js-delete">X</button></div>
+		</li>
+		<li class="newentry">
+			<div class="type">
+				<select name="type" id="type">
+					<option value="text">Text</option>
+					<option value="textarea">TextArea</option>
+					<option value="radio">Radio</option>
+					<option value="checkbox">Checkbox</option>
+					<option value="file">Attachment</option>
+					<option value="heading">Heading</option>
+				</select>
+			</div>
+			<div class="name">
+				<input type="text" name="name" value="">
+			</div>
+			<div class="title">
+				<input type="text" name="title" value="">
+			</div>
+			<div class="required">
+				<input type="checkbox" name="required" value="1">
+			</div>
+			<div class="add">
+				<button class="js-new new">Save</button>
+			</div>
+			<div class="options">
+				<button class="js-showoptions showoptions">Show Options</button>
+				<button class="js-hideoptions hideoptions">Hide Options</button>
+			</div>
+		</li>
+	</ol>
+	<script src="main.js"></script>
+</body>
+</html>

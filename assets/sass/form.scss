@@ -1,0 +1,112 @@
+@import 'compass';
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+
+
+.formeditor {
+	margin: 0;
+	list-style: none;
+	padding: 5px;
+
+	li {
+		@extend .cf;
+		border: 1px solid #eee;
+		&[draggable] {
+			cursor: move;
+		}
+		> div {
+			float: left;
+			padding: 3px;
+			background-color: #666;
+			cursor: pointer;
+			height: 30px;
+		}
+		&.titles {
+			> div {
+				text-align: center;
+				font-weight: bold;
+			}
+		}
+		&.over {
+		  border: 2px dashed #000;
+		}
+		
+		.static {
+			display: block;
+		}
+		.edit {
+			display: none;
+		}
+
+		&.editing {
+			.static {
+				display: none;
+			}
+			.edit {
+				display: block;
+			}
+		}
+
+	}
+
+	.move {
+		// cursor: move;
+		width: 2%;
+		// background-color: transparent;
+		visibility: hidden;
+		& + .type {
+			width: 18%;
+		}
+	}
+
+	.type {
+		width: 20%;
+	}
+	.name {
+		width: 20%;
+	}
+	.title {
+		width: 20%;
+	}
+	.required {
+		width: 20%;
+	}
+	.delete {
+		width: 20%;
+	}
+	.add {
+		width: 20%;
+	}
+	.options {
+		width: 100%;
+	}
+}
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
