@@ -6,11 +6,12 @@
 	<link rel="stylesheet" href="assets/css/form.css">
 
 	<script src="modernizr.js"></script>
+	<script src="assets/js/Sortable-master/Sortable.min.js"></script>
+	<script src="assets/js/handlebars-v2.0.0.js"></script>
 </head>
 
 <body>
-
-	<ol class="formeditor">
+	<ul id="formeditor" class="formeditor">
 		<li class="titles">
 			<div class="type">Type</div>
 			<div class="name">Name</div>
@@ -18,7 +19,8 @@
 			<div class="required">Required</div>
 			<div class="delete">Action</div>
 		</li>
-		<li draggable="true" class="entry display" data-id="1">
+		
+		<li  class="entry display" data-id="2">
 			<div class="move"></div>
 			<div class="type">
 				<div class="static">Text</div>
@@ -35,9 +37,9 @@
 				</div>
 			</div>
 			<div class="name">
-				<div class="static">testing1</div>
+				<div class="static">testing2</div>
 				<div class="edit">
-					<input type="text" name="name" value="testing1">
+					<input type="text" name="name" value="testing2">
 				</div>
 			</div>
 			<div class="title">
@@ -58,22 +60,6 @@
 					<button class="js-save save">Save</button>
 				</div>
 			</div>
-		</li>
-		<li draggable="true" class="entry display" data-id="2">
-			<div class="move"></div>
-			<div class="type">Text</div>
-			<div class="name">testing2</div>
-			<div class="title">Test Field</div>
-			<div class="required">Yes</div>
-			<div class="delete"><button class="delete js-delete">X</button></div>
-		</li>
-		<li draggable="true" class="entry display" data-id="3">
-			<div class="move"></div>
-			<div class="type">Text</div>
-			<div class="name">testing3</div>
-			<div class="title">Test Field</div>
-			<div class="required">Yes</div>
-			<div class="delete"><button class="delete js-delete">X</button></div>
 		</li>
 		<li class="newentry">
 			<div class="type">
@@ -101,9 +87,53 @@
 			<div class="options">
 				<button class="js-showoptions showoptions">Show Options</button>
 				<button class="js-hideoptions hideoptions">Hide Options</button>
+
 			</div>
 		</li>
-	</ol>
+	</ul>
+	<script id="entry-template" type="text/x-handlebars-template">
+	  <li  class="entry display" data-id="{{id}}">
+	  	<div class="move"></div>
+	  	<div class="type">
+	  		<div class="static">{{field_type}}</div>
+	  		<div class="edit">
+	  			<select name="type" id="type">
+	  				<option value="text">Text</option>
+	  				<option value="textarea">TextArea</option>
+	  				<option value="radio">Radio</option>
+	  				<option value="checkbox">Checkbox</option>
+	  				<option value="select">Select</option>
+	  				<option value="attachment">Attachment</option>
+	  				<option value="heading">Heading</option>
+	  			</select>
+	  		</div>
+	  	</div>
+	  	<div class="name">
+	  		<div class="static">{{field_name}}</div>
+	  		<div class="edit">
+	  			<input type="text" name="name" value="{{field_name}}">
+	  		</div>
+	  	</div>
+	  	<div class="title">
+	  		<div class="static">{{field_title}}</div>
+	  		<div class="edit">
+	  			<input type="text" name="title" value="{{field_title}}">
+	  		</div>
+	  	</div>
+	  	<div class="required">
+	  		<div class="static">{{field_required_text}}</div>
+	  		<div class="edit">
+	  			<input type="checkbox" name="required" value="1" {{field_required_checked}}>
+	  		</div>
+	  	</div>
+	  	<div class="delete">
+	  		<div class="static"><button class="delete js-delete">X</button></div>
+	  		<div class="edit">
+	  			<button class="js-save save">Save</button>
+	  		</div>
+	  	</div>
+	  </li>
+	</script>
 	<script src="main.js"></script>
 </body>
 </html>
